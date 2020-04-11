@@ -1,0 +1,14 @@
+= Angular with jQuery Datatables Demo
+
+This project demonstrates how to use https://datatables.net/[jQuery Datatables] in an Angular project with only jQuery and Datatables (and Bootstrap 4).
+
+Yes, I know there are alternatives to Datatables so that you can drop jQuery usage with Angular.
+And I would certainly prefer and advise that route when starting a new project.
+But there definitely are situations where migration to an Angular based Datatable solution may not be the quickest and easiest,
+especially if you have many existing Datatables, and so you are forced to keep using Datatables.
+
+== Demonstrations
+* Zero configuration from dom sourced data
+* Javascript sourced data
+* Ajax sourced data
+* Server-side processing
