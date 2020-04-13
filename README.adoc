@@ -12,3 +12,5 @@ especially if you have many existing Datatables, and so you are forced to keep u
 * Javascript sourced data
 * Ajax sourced data
 * Server-side processing
+
+ Note: It may take a few seconds for the app to start if no one has not accessed it recently

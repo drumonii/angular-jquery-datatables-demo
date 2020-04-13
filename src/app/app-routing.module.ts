@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'server-side',
     loadChildren: () => import('./server-side-datatable.module').then(m => m.ServerSideDatatableModule)
+  },
+  {
+    path: '**',
+    redirectTo: '/',
   }
 ];
 
