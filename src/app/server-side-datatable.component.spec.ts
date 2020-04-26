@@ -32,8 +32,14 @@ describe('ServerSideDatatableComponent', () => {
       totalPages: Math.ceil(interceptor.data.length / 10)
     }));
 
+    spyOn(window, 'alert');
+
     fixture.detectChanges();
   }));
+
+  afterEach(() => {
+    expect(window.alert).not.toHaveBeenCalled();
+  });
 
   it('should create the datatable based on the Server-side Processing example', () => {
     const datatable = document.querySelector('#example_wrapper');

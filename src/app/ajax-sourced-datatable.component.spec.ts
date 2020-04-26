@@ -26,11 +26,42 @@ describe('AjaxSourcedDatatableComponent', () => {
 
     spyOn(service, 'getData').and.returnValue(of(interceptor.data));
 
+    spyOn(window, 'alert');
+
     fixture.detectChanges();
   }));
 
-  it('should create the datatable based on the Ajax Sourced Data example', () => {
+  afterEach(() => {
+    expect(window.alert).not.toHaveBeenCalled();
+  });
+
+  it('should create the datatable based on the Ajax Sourced Data example',
+    inject([AjaxSourcedDatatableService], (service: AjaxSourcedDatatableService) => {
     const datatable = document.querySelector('#example_wrapper');
     expect(datatable).toBeTruthy();
-  });
+
+    expect(service.getData).toHaveBeenCalledWith(component.form.get('startDate').value);
+  }));
+
+  it('should reload the datatable on valid datepicker change',
+    inject([AjaxSourcedDatatableService], (service: AjaxSourcedDatatableService) => {
+    component.form.patchValue({
+      'startDate': '2009-01-01'
+    });
+
+    fixture.detectChanges();
+
+    expect(service.getData).toHaveBeenCalledWith('2009-01-01');
+  }));
+
+  it('should not reload the datatable on invalid datepicker change',
+    inject([AjaxSourcedDatatableService], (service: AjaxSourcedDatatableService) => {
+    component.form.patchValue({
+      'startDate': ''
+    });
+
+    fixture.detectChanges();
+
+    expect(service.getData).toHaveBeenCalledTimes(1);
+  }));
 });

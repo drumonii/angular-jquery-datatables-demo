@@ -1,3 +1,5 @@
+import { Key } from 'protractor';
+
 import { AjaxSourcedPage } from './ajax-sourced.po';
 
 describe('Ajax Sourced Data Datatables Demo', () => {
@@ -9,6 +11,22 @@ describe('Ajax Sourced Data Datatables Demo', () => {
 
     expect(await page.getDemoHeader()).toBe('Ajax Sourced Data');
     expect(await page.getDatatable().isPresent()).toBe(true);
+  });
+
+  describe('datepicker', () => {
+
+    it('should apply the start date filter', async() => {
+      await page.applyDatepicker('3', '3', Key.TAB, '2', '0', '1', '3');
+      expect(await page.getFirstRow()).toEqual({
+        name: 'Thor Walton',
+        position: 'Developer',
+        office: 'New York',
+        extn: '8327',
+        start_date: '2013/08/11',
+        salary: '$98,540'
+      });
+    });
+
   });
 
   describe('filter', () => {
