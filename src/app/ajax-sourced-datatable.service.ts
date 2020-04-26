@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -10,8 +10,15 @@ export class AjaxSourcedDatatableService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getData(): Observable<AjaxData[]> {
-    return this.httpClient.get<AjaxData[]>('/ajax-data');
+  getData(startDate: string): Observable<AjaxData[]> {
+    const params = new HttpParams()
+      .append('startDate', startDate)
+
+    const options = {
+      params
+    };
+
+    return this.httpClient.get<AjaxData[]>('/ajax-data', options);
   }
 
 }

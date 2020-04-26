@@ -21,9 +21,11 @@ describe('AjaxSourcedDatatableService', () => {
 
   describe('getData', () => {
 
+    const startDate = '2010-01-01';
+
     const requestMatch: RequestMatch = {
       method: 'GET',
-      url: '/ajax-data'
+      url: `/ajax-data?startDate=${startDate}`
     };
 
     it('should get the ajax data', inject([HttpTestingController], (httpMock: HttpTestingController) => {
@@ -39,7 +41,7 @@ describe('AjaxSourcedDatatableService', () => {
         }
       ];
 
-      service.getData().subscribe((data) => {
+      service.getData(startDate).subscribe((data) => {
         expect(data).toEqual(mockData);
       });
 

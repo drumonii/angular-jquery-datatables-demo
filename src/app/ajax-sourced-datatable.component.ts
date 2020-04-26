@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, filter, takeUntil } from 'rxjs/operators';
 
 import { AjaxSourcedDatatableService } from './ajax-sourced-datatable.service';
 
@@ -18,13 +19,17 @@ export class AjaxSourcedDatatableComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private service: AjaxSourcedDatatableService) {}
+  form = this.formBuilder.group({
+    startDate: ['2008-01-01', [Validators.required]]
+  })
+
+  constructor(private service: AjaxSourcedDatatableService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    $('#example').DataTable({
+    const table = $('#example').DataTable({
       processing: true,
       ajax: (data, callback, settings) => {
-        this.service.getData()
+        this.service.getData(this.form.get('startDate').value)
           .pipe(
             takeUntil(this.destroy$),
           )
@@ -44,6 +49,14 @@ export class AjaxSourcedDatatableComponent implements OnInit, OnDestroy {
         processing: `<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>`
       }
     });
+
+    this.form.valueChanges
+      .pipe(
+        distinctUntilChanged(),
+        filter(() => this.form.valid),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => table.ajax.reload());
   }
 
   ngOnDestroy(): void {
