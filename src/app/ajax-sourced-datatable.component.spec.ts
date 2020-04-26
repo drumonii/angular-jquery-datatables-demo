@@ -26,8 +26,14 @@ describe('AjaxSourcedDatatableComponent', () => {
 
     spyOn(service, 'getData').and.returnValue(of(interceptor.data));
 
+    spyOn(window, 'alert');
+
     fixture.detectChanges();
   }));
+
+  afterEach(() => {
+    expect(window.alert).not.toHaveBeenCalled();
+  });
 
   it('should create the datatable based on the Ajax Sourced Data example', () => {
     const datatable = document.querySelector('#example_wrapper');
