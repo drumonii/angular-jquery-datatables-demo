@@ -27,7 +27,7 @@ describe('Home', () => {
     it('should show the GitHub link', async() => {
       const gitHubLink = page.getGitHubLink();
       expect(await gitHubLink.getText()).toBe('GitHub');
-      expect(await gitHubLink.getAttribute('href')).toBe('https://github.com/drumonii/angular-jquery-datables-demo');
+      expect(await gitHubLink.getAttribute('href')).toBe('https://github.com/drumonii/angular-jquery-datatables-demo');
     });
 
   });
