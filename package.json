@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --outputPath=dist",
+    "build-with-stats": "ng build --prod --outputPath=dist --statsJson=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e --port=0"
