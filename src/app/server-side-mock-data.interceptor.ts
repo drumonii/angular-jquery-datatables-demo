@@ -594,18 +594,18 @@ export class ServerSideMockDataInterceptor implements HttpInterceptor {
     })).pipe(delay(this.networkDelay));
   }
 
-  private compare(val1, val2, direction) {
+  private compare(val1, val2, direction): number {
     if (direction === 'asc') {
       return this.sortAsc(val1, val2);
     }
     return this.sortDesc(val1, val2);
   }
 
-  private sortAsc(value1, value2) {
+  private sortAsc(value1, value2): number {
     return value1 === value2 ? 0 : value1 > value2 ? 1 : -1;
   }
 
-  private sortDesc(val1, val2) {
+  private sortDesc(val1, val2): number {
     return val1 === val2 ? 0 : val1 < val2 ? 1 : -1;
   }
 

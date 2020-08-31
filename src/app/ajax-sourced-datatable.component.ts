@@ -21,7 +21,7 @@ export class AjaxSourcedDatatableComponent implements OnInit, OnDestroy {
 
   form = this.formBuilder.group({
     startDate: ['2008-01-01', [Validators.required]]
-  })
+  });
 
   constructor(private service: AjaxSourcedDatatableService, private formBuilder: FormBuilder) {}
 

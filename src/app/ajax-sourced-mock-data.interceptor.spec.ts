@@ -38,7 +38,7 @@ describe('AjaxSourcedMockDataInterceptor', () => {
               office: 'New York',
               extn: '8327'
             }
-          ])
+          ]);
           expect(response.body.length).toBe(1);
           expect(next.handle).not.toHaveBeenCalled();
         });

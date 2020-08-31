@@ -46,7 +46,7 @@ describe('AjaxSourcedDatatableComponent', () => {
   it('should reload the datatable on valid datepicker change',
     inject([AjaxSourcedDatatableService], (service: AjaxSourcedDatatableService) => {
     component.form.patchValue({
-      'startDate': '2009-01-01'
+      startDate: '2009-01-01'
     });
 
     fixture.detectChanges();
@@ -57,7 +57,7 @@ describe('AjaxSourcedDatatableComponent', () => {
   it('should not reload the datatable on invalid datepicker change',
     inject([AjaxSourcedDatatableService], (service: AjaxSourcedDatatableService) => {
     component.form.patchValue({
-      'startDate': ''
+      startDate: ''
     });
 
     fixture.detectChanges();
