@@ -23,7 +23,7 @@
     "bootstrap": "^4.4.1",
     "datatables.net": "^1.10.20",
     "datatables.net-bs4": "^1.10.20",
-    "jquery": "^3.5.0",
+    "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"
