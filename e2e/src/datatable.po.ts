@@ -22,7 +22,7 @@ export abstract class AbstractDatatablePage extends AbstractAppPage {
     return tableHeader.slice(0, tableHeader.indexOf('table-header') - 1).replace('-', '_');
   }
 
-  async getFirstRow() {
+  async getFirstRow(): Promise<any> {
     const tableHeaders = await this.getTableHeaders();
 
     const properties = [];

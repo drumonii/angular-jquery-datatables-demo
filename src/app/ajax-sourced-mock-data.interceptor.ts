@@ -535,7 +535,7 @@ export class AjaxSourcedMockDataInterceptor implements HttpInterceptor {
     }
 
     const params = request.params;
-    const startDateFilter = new Date(params.get('startDate'))
+    const startDateFilter = new Date(params.get('startDate'));
     startDateFilter.setUTCHours(0, 0, 0, 0);
 
     return of(new HttpResponse<AjaxData[]>({

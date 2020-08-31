@@ -13,7 +13,7 @@ export class AjaxSourcedPage extends AbstractDatatablePage {
   }
 
   async applyDatepicker(...values: string[]): Promise<void> {
-    const datepicker = element(by.css('[data-e2e="started-after-datepicker"]'))
+    const datepicker = element(by.css('[data-e2e="started-after-datepicker"]'));
     return datepicker.sendKeys(...values);
   }
 

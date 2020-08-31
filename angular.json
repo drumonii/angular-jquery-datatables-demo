@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "jquery",
+              "datatables.net",
+              "datatables.net-bs4"
+            ],
             "outputPath": "dist/angular-jquery-datatables-demo",
             "index": "src/index.html",
             "main": "src/main.ts",

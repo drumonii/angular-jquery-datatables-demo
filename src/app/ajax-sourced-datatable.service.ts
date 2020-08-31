@@ -12,7 +12,7 @@ export class AjaxSourcedDatatableService {
 
   getData(startDate: string): Observable<AjaxData[]> {
     const params = new HttpParams()
-      .append('startDate', startDate)
+      .append('startDate', startDate);
 
     const options = {
       params
