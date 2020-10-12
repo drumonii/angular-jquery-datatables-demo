@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JsSourcedDatatableModule } from './js-sourced-datatable.module';
 import { JsSourcedDatatableComponent } from './js-sourced-datatable.component';
@@ -7,12 +7,12 @@ describe('JsSourcedDatatableComponent', () => {
   let component: JsSourcedDatatableComponent;
   let fixture: ComponentFixture<JsSourcedDatatableComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [JsSourcedDatatableModule]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(JsSourcedDatatableComponent);

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { of } from 'rxjs';
@@ -13,12 +13,12 @@ describe('ServerSideDatatableComponent', () => {
   let fixture: ComponentFixture<ServerSideDatatableComponent>;
   const interceptor = new ServerSideMockDataInterceptor();
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, ServerSideDatatableModule]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(inject([ServerSideDatatableService], (service: ServerSideDatatableService) => {
     fixture = TestBed.createComponent(ServerSideDatatableComponent);

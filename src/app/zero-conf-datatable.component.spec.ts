@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ZeroConfDatatableModule } from './zero-conf-datatable.module';
 import { ZeroConfDatatableComponent } from './zero-conf-datatable.component';
@@ -7,12 +7,12 @@ describe('ZeroConfDatatableComponent', () => {
   let component: ZeroConfDatatableComponent;
   let fixture: ComponentFixture<ZeroConfDatatableComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [ZeroConfDatatableModule]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ZeroConfDatatableComponent);
