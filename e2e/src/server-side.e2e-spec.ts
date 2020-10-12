@@ -4,7 +4,7 @@ describe('Server-side processing Datatables Demo ', () => {
 
   const page = new ServerSidePage();
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     await page.navigateTo();
 
     expect(await page.getDemoHeader()).toBe('Server-side Processing');
@@ -13,7 +13,7 @@ describe('Server-side processing Datatables Demo ', () => {
 
   describe('filter', () => {
 
-    it('should apply filter', async() => {
+    it('should apply filter', async () => {
       await page.applyFilter('ange');
       expect(await page.getFirstRow()).toEqual({
         name: 'Angelica Ramos',
@@ -39,7 +39,7 @@ describe('Server-side processing Datatables Demo ', () => {
 
   describe('sort', () => {
 
-    it('should apply new sort', async() => {
+    it('should apply new sort', async () => {
       await page.applySortTo('position');
 
       expect(await page.getFirstRow()).toEqual({
@@ -52,7 +52,7 @@ describe('Server-side processing Datatables Demo ', () => {
       });
     });
 
-    it('should flip existing sort', async() => {
+    it('should flip existing sort', async () => {
       await page.applySortTo('name');
 
       expect(await page.getFirstRow()).toEqual({
@@ -69,7 +69,7 @@ describe('Server-side processing Datatables Demo ', () => {
 
   describe('paginate', () => {
 
-    it('should paginate', async() => {
+    it('should paginate', async () => {
       expect(await page.getEntriesInfo().getText()).toBe('Showing 1 to 10 of 57 entries');
 
       await page.nextPage();
@@ -83,7 +83,7 @@ describe('Server-side processing Datatables Demo ', () => {
 
   describe('entries', () => {
 
-    it('should change entries', async() => {
+    it('should change entries', async () => {
       await page.changeEntriesTo(25);
       expect(await page.getEntriesInfo().getText()).toContain('Showing 1 to 25 of 57 entries');
     });
