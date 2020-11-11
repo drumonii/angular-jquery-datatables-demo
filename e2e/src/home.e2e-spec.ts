@@ -30,6 +30,12 @@ describe('Home', () => {
       expect(await gitHubLink.getAttribute('href')).toBe('https://github.com/drumonii/angular-jquery-datatables-demo');
     });
 
+    it('should show the Angular version', async () => {
+      const angularVersion = page.getAngularVersion();
+      expect(await angularVersion.getText()).toContain('Angular v');
+      expect(await angularVersion.getText()).toContain('.');
+    });
+
   });
 
 });

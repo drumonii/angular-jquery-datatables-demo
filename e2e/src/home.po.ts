@@ -16,4 +16,8 @@ export class HomePage extends AbstractAppPage {
     return element(by.css('[data-e2e="github-link"]'));
   }
 
+  getAngularVersion(): ElementFinder {
+    return element(by.css('[data-e2e="angular-version"]'));
+  }
+
 }
