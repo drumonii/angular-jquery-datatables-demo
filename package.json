@@ -12,6 +12,10 @@
   },
   "private": true,
   "dependencies": {
+    "@ag-grid-community/angular": "^25.0.0",
+    "@ag-grid-community/client-side-row-model": "^25.0.0",
+    "@ag-grid-community/core": "^25.0.0",
+    "@ag-grid-community/infinite-row-model": "^25.0.0",
     "@angular/animations": "~10.2.3",
     "@angular/common": "~10.2.3",
     "@angular/compiler": "~10.2.3",
@@ -21,9 +25,6 @@
     "@angular/platform-browser-dynamic": "~10.2.3",
     "@angular/router": "~10.2.3",
     "bootstrap": "^4.5.2",
-    "datatables.net": "^1.10.22",
-    "datatables.net-bs4": "^1.10.22",
-    "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"

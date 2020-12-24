@@ -14,6 +14,7 @@ export abstract class AbstractDatatablePage extends AbstractAppPage {
     return element(by.css('[data-e2e="demo-header"]')).getText();
   }
 
+  // TODO: Make this abstract because we can't define data-e2e to th with ag grid
   async getTableHeaders(): Promise<string[]> {
     return element.all(by.css('#example thead tr th')).map<string>((th) => th.getAttribute('data-e2e'));
   }

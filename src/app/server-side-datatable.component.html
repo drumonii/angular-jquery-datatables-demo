@@ -1,27 +1,21 @@
 <h3 data-e2e="demo-header">Server-side Processing</h3>
 <p>
-  Example taken from the Datatables docs <a href="https://datatables.net/examples/server_side/simple.html">here</a>.
+  Datatables equivalent <a href="https://datatables.net/examples/server_side/simple.html">here</a>.
 </p>
 
-<table id="example" class="table table-striped table-bordered">
-  <thead>
-  <tr>
-    <th data-e2e="name-table-header">Name</th>
-    <th data-e2e="position-table-header">Position</th>
-    <th data-e2e="office-table-header">Office</th>
-    <th data-e2e="extn-table-header">Extn</th>
-    <th data-e2e="start-date-table-header">Start date</th>
-    <th data-e2e="salary-table-header">Salary</th>
-  </tr>
-  </thead>
-  <tfoot>
-  <tr>
-    <th>Name</th>
-    <th>Position</th>
-    <th>Office</th>
-    <th>Extn.</th>
-    <th>Start date</th>
-    <th>Salary</th>
-  </tr>
-  </tfoot>
-</table>
+<div class="row" [formGroup]="form">
+  <div class="col">
+    <div class="form-group">
+      <label for="filter-input">Search:</label>
+      <input type="text" class="form-control" id="filter-input" formControlName="filter">
+    </div>
+  </div>
+</div>
+
+<ag-grid-angular
+  id="#example"
+  style="width: 100%; height: 550px"
+  class="ag-theme-alpine"
+  [gridOptions]="gridOptions"
+  (gridReady)="onGridReady($event)">
+</ag-grid-angular>

@@ -8,10 +8,6 @@ const routes: Routes = [
     loadChildren: () => import('./home.module').then(m => m.HomeModule)
   },
   {
-    path: 'zero-conf',
-    loadChildren: () => import('./zero-conf-datatable.module').then(m => m.ZeroConfDatatableModule)
-  },
-  {
     path: 'ajax-sourced',
     loadChildren: () => import('./ajax-sourced-datatable.module').then(m => m.AjaxSourcedDatatableModule)
   },
@@ -20,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./js-sourced-datatable.module').then(m => m.JsSourcedDatatableModule)
   },
   {
-    path: 'server-side',
+    path: 'infinite-row',
     loadChildren: () => import('./server-side-datatable.module').then(m => m.ServerSideDatatableModule)
   }
 ];
