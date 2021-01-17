@@ -589,7 +589,7 @@ export class ServerSideMockDataInterceptor implements HttpInterceptor {
         totalPages: pagedData.length,
         page,
         pageSize,
-        content: pagedData[page]
+        content: page >= totalPages ? [] : pagedData[page]
       }
     })).pipe(delay(this.networkDelay));
   }

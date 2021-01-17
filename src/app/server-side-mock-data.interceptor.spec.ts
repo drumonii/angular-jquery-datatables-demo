@@ -305,6 +305,46 @@ describe('ServerSideMockDataInterceptor', () => {
         tick(interceptor.networkDelay);
       }));
 
+      it('should handle when page = total pages',  fakeAsync(() => {
+        const params = new HttpParams()
+          .append('page', '6');
+        const request = baseRequest.clone({ params });
+
+        interceptor.intercept(request, next).subscribe((response: HttpResponse<ServerSideDataResponse>) => {
+          expect(response.status).toBe(200);
+          expect(response.body).toEqual({
+            totalElements: interceptor.data.length,
+            totalPages: 6,
+            page: 6,
+            pageSize: 10,
+            content: []
+          });
+          expect(next.handle).not.toHaveBeenCalled();
+        });
+
+        tick(interceptor.networkDelay);
+      }));
+
+      it('should handle when page > total pages',  fakeAsync(() => {
+        const params = new HttpParams()
+          .append('page', '7');
+        const request = baseRequest.clone({ params });
+
+        interceptor.intercept(request, next).subscribe((response: HttpResponse<ServerSideDataResponse>) => {
+          expect(response.status).toBe(200);
+          expect(response.body).toEqual({
+            totalElements: interceptor.data.length,
+            totalPages: 6,
+            page: 7,
+            pageSize: 10,
+            content: []
+          });
+          expect(next.handle).not.toHaveBeenCalled();
+        });
+
+        tick(interceptor.networkDelay);
+      }));
+
     });
 
   });
